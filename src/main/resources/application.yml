@@ -1,0 +1,20 @@
+debug: true
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/crypto
+    username: postgres
+    password:
+  jackson:
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_AS_NULL: true
+crypto:
+  id: '90,80,48543'
+  api:
+    url: https://api.coinlore.net/api/ticker/?id=
+  message: 'Coin: %s, username: %s, price changed by: %f%%'
