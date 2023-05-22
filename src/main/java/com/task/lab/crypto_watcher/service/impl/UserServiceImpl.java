@@ -6,6 +6,7 @@ import com.task.lab.crypto_watcher.repo.api.IUserRepository;
 import com.task.lab.crypto_watcher.service.api.IUserService;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public UserEntity getUserEntity(@NotNull UserSubscription userSubscription) {
         Optional<UserEntity> byUsername = repository.findByUsername(userSubscription.getName());
 
